@@ -26,7 +26,7 @@ $messages = GetActiveMessages();
     </div>
     <div class="bottom-screen">
         <?php foreach($messages as $order => $message) { ?>
-        <div id="content-<?= $order ?>"><img src="<?= GetAvatar($message['userid']) ?>" class="round"><a class="name"><?= htmlspecialchars(GetName($message['userid'])) ?></a>: <?= htmlspecialchars($message['message']) ?></div>
+        <div id="content-<?= $order ?>"><img src="<?= GetAvatar($message['userid']) ?>" class="round"><a class="name" style="color: <?= htmlspecialchars(GetColour($message['userid'])) ?>"><?= htmlspecialchars(GetName($message['userid'])) ?></a>: <?= htmlspecialchars($message['message']) ?></div>
         <?php } ?>
     </div>
 
