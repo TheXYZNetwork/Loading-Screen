@@ -92,16 +92,20 @@ class Cache {
 
   /**
    * Retrieve cached data by its key
-   * 
+   *
    * @param string $key
    * @param boolean [optional] $timestamp
    * @return string
    */
   public function retrieve($key, $timestamp = false) {
-    $cachedData = $this->_loadCache();
-    (false === $timestamp) ? $type = 'data' : $type = 'time';
-    if (!isset($cachedData[$key][$type])) return null; 
-    return unserialize($cachedData[$key][$type]);
+      $cachedData = $this->_loadCache();
+      (false === $timestamp) ? $type = 'data' : $type = 'time';
+      if (!isset($cachedData[$key][$type])) return null;
+
+      if ($type == 'time') {
+          return $cachedData[$key][$type];
+      }
+      return unserialize($cachedData[$key][$type]);
   }
 
   /**
