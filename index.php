@@ -23,7 +23,7 @@ $messages = GetActiveMessages();
 
 <body>
     <div class="center-screen">
-        <img class="logo floating" src="/assets/logo.png">
+        <img class="logo floating" src="assets/logo.png">
     </div>
     <div class="bottom-screen">
         <?php foreach($messages as $order => $message) { ?>
