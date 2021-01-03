@@ -1,7 +1,7 @@
 <?php
 $APIKey = "FlB6XSNJBbIN59fQwkAA9SvandmbGVX3ljaVRWCx";
-use Wruczek\PhpFileCache\PhpFileCache;
-$cache = new PhpFileCache();
+//use Wruczek\PhpFileCache\PhpFileCache;
+//$cache = new PhpFileCache();
 
 function GetActiveMessages() {
     global $masterConnection;
@@ -12,10 +12,10 @@ function GetActiveMessages() {
 
 function GetUserData($id) {
     global $APIKey;
-    global $cache;
+//    global $cache;
 
     try {
-        if ($cache->isExpired($id . "|Name")) {
+        //if ($cache->isExpired($id . "|Name")) {
             $agent = 'Loading Screen';
             $url = "http://api.thexyznetwork.xyz/xsuite/profile/" . $id;
             $ch = curl_init();
@@ -35,12 +35,12 @@ function GetUserData($id) {
 
             //print_r($response[0]['result']);
 
-            $cache->store($id . "|Name", $response->result->name, 60*60);
-            $cache->store($id . "|Avatar", $response->result->avatar, 60*60);
-        }
+            //$cache->store($id . "|Name", $response->result->name, 60*60);
+            //$cache->store($id . "|Avatar", $response->result->avatar, 60*60);
+        //}
 
         // Return the cache data
-        return array("name" => $cache->retrieve($id . "|Name"), "avatar" => $cache->retrieve($id . "|Avatar"));
+        return array("name" => $response->result->name, "avatar" => $response->result->avatar);
     } catch (Exception $e) {
         return array("name" => "Unknown", "avatar" => "https://steamuserimages-a.akamaihd.net/ugc/868480752636433334/1D2881C5C9B3AD28A1D8852903A8F9E1FF45C2C8/");
     }
