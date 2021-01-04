@@ -1,5 +1,5 @@
 body {
-    background-image: url(../assets/dark.jpg);
+    background-image: url(../assets/background.jpg);
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
@@ -10,8 +10,6 @@ body {
     color: white;
     font-weight: bold;
 }
-
-html,body{height:100%;}
 
 .logo {
     max-width: 30%;
