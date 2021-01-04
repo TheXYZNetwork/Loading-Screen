@@ -20,7 +20,21 @@ $messages = GetActiveMessages();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
-<body>
+<?php
+    $useragent = $_SERVER['HTTP_USER_AGENT'];
+    if(strpos($useragent, 'Awesomium') === false) {
+        echo '<body class="body1">';
+    } else {
+        echo '<body class="body2">';
+    };
+?>
+    <div class="center-screen">
+        <?php
+            if(strpos($useragent, 'Awesomium') === false) {
+                echo '<img class="logo floating" src="assets/logo.png">';
+            };
+        ?>
+    </div>
     <div class="bottom-screen">
         <?php foreach($messages as $order => $message) { ?>
         <div id="content-<?= $order ?>"><img src="<?= GetAvatar($message['userid']) ?>" class="round"><a class="name" style="color: <?= htmlspecialchars(GetColour($message['userid'])) ?>"><?= htmlspecialchars(GetName($message['userid'])) ?></a>: <?= htmlspecialchars($message['message']) ?></div>
@@ -42,4 +56,3 @@ $messages = GetActiveMessages();
     </script>
 </body>
 </html>
-
