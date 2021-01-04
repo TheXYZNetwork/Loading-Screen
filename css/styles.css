@@ -11,17 +11,18 @@ body {
     font-weight: bold;
 }
 
+html,body{height:100%;}
+
 .logo {
-    max-width: 60%;
+    max-width: 30%;
     height: auto;
 }
 
 .center-screen {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90%;
 }
 
 .bottom-screen {
